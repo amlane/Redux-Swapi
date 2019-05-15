@@ -1,4 +1,4 @@
-import { FETCH_PEOPLE_START, FETCH_PEOPLE_SUCCESS } from "../actions";
+import { FETCH_PEOPLE_START, FETCH_PEOPLE_SUCCESS, FETCH_PEOPLE_FAILURE } from "../actions";
 
 
 const initialState = {
@@ -24,7 +24,15 @@ export const charsReducer = (state = initialState, action) => {
     return {
       ...state,
       error: '',
-      isFetching: false
+      isFetching: false,
+      characters: action.payload
+    }
+    case FETCH_PEOPLE_FAILURE:
+    return {
+      ...state,
+      error: '',
+      isFetching: false,
+      characters: action.payload
     }
     default:
       return state;

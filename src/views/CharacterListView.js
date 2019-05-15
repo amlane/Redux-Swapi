@@ -12,7 +12,7 @@ class CharacterListView extends React.Component {
 
   componentDidMount() {
     // call our action
-
+    this.props.getCharacter();
   }
 
   render() {
@@ -20,7 +20,6 @@ class CharacterListView extends React.Component {
       // return something here to indicate that you are fetching data
 
     }
-    console.log(this.props.characters)
     return (
       <div className="CharactersList_wrapper">
         <CharacterList characters={this.props.characters} />
