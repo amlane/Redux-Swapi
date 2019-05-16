@@ -18,5 +18,8 @@ export const getCharacter = () => dispatch => {
         console.log(res.data.results)
         dispatch({ type: FETCH_PEOPLE_SUCCESS, payload: res.data.results })
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+        console.log(err.response.status)
+        dispatch({ type: FETCH_PEOPLE_FAILURE, payload: `${err.response.status} Not Found` })
+    })
 }
